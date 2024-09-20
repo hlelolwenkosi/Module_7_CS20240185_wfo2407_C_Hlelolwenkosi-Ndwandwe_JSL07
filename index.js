@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const personalMessageInput = document.getElementById('personalMessage');
       const courseNameInput = document.getElementById('courseName');
   
-      const studentName = studentNameInput.value; //testing
+      const studentName = studentNameInput.value; 
       const personalMessage = personalMessageInput.value;
       const courseName = courseNameInput ? courseNameInput.value : "a course"; // Fallback to "a course" if no input
   
@@ -24,10 +24,18 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
   
-      // 🚨 Generate certificate content dynamically
-      certificateContent. = `
-      <h3>${studentName}</h3>
-    `;
+      // Dynamically generate certificate content, including an image logo and formatted message
+      certificateContent.innerHTML = `
+          <h3>Certificate of Achievement 💪🏽</h3>
+          <p>This is to certify that</p>
+          <p><strong>${studentName}</strong></p>
+          <p>has almost completed the</p>
+          <p><strong>${courseName}</strong>.</p>
+          <p>With legendary perseverance and world-class bad-assery for never giving up 🏆🏆</p>
+          <img src="logo.png" alt="Logo" class="certificate-logo">
+          <p>${personalMessage}</p>
+      `;
+
     
       //  Display the modal
       modal.style.display = 'block';
