@@ -36,19 +36,24 @@ document.addEventListener('DOMContentLoaded', function () {
           <p>${personalMessage}</p>
       `;
 
-    
-      //  Display the modal
-      modal.style.display = 'block';
-  
-      // Clear the form inputs
-      studentNameInput.value = '';
-      personalMessageInput.value = '';
-      if(courseNameInput) courseNameInput.value = '';
-    });
-  
-    //  🚨 Close the modal when the close button is clicked
-    closeModal.('', function () {
-      
-    });
+      // Show the modal after generating the certificate content
+   modal.style.display = 'block';
+
+   // Clear the input fields after submission
+   studentNameInput.value = '';
+   personalMessageInput.value = '';
+   courseNameInput.value = ''; // Clear the course name input only if it's present
+});
+    // Close the modal when the close button is clicked
+  closeModal.addEventListener('click', function () {
+    modal.style.display = 'none'; // Hide the modal
+});
+ // Close the modal if the user clicks outside the modal content
+ window.addEventListener('click', function (event) {
+  if (event.target === modal) {
+      modal.style.display = 'none'; // Hide the modal when clicking outside
+  }
+});
+
   });
   
